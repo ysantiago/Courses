@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		
+		<menuitem name="Couses" id="menu_root_courses" sequence="50"/>
+		<menuitem name="General" id="menu_general" parent="menu_root_courses" sequence="10"/>
+		
+		<!--Module object form view-->
+		<record model="ir.ui.view" id="view_course_form">
+			<field name="name">course.form</field>
+			<field name="model">course</field>
+			<field name="arch" type="xml">
+				<form string="Course">
+					<field name="name"/>
+					<field name="description"/>
+				</form>
+			</field>
+		</record>
+		
+		<!--Module object tree view-->
+		<record model="ir.ui.view" id="view_course_tree">
+			<field name="name">course.tree</field>
+			<field name="model">course</field>
+			<field name="arch" type="xml">
+				<tree string="Courses">
+					<field name="name"/>
+					<field name="description"/>
+				</tree>
+			</field>
+		</record>
+		
+		<!--Module object action-->
+		<record model="ir.actions.act_window" id="course_action">
+			<field name="name">Courses</field>
+			<field name="res_model">course</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create"> Create the first course</p>
+			</field>
+		</record>
+		
+		<menuitem id="menu_course" parent="menu_general" action="course_action" sequence="10"/>
+			
+		
+    </data>
+</openerp>
